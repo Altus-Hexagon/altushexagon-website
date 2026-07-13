@@ -35,7 +35,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#0A0E1A]/95 backdrop-blur-lg border-b border-white/5 shadow-lg shadow-black/20"
+            ? "bg-charcoal/95 backdrop-blur-lg border-b border-white/5 shadow-lg shadow-black/20"
             : "bg-transparent"
         }`}
       >
@@ -62,13 +62,13 @@ export default function Navbar() {
                   href={link.href}
                   className={`text-sm font-medium transition-colors duration-200 relative group ${
                     isActive
-                      ? "text-[#D4AF37]"
-                      : "text-[#F5F5F5]/80 hover:text-[#D4AF37]"
+                      ? "text-gold"
+                      : "text-off-white/80 hover:text-gold"
                   }`}
                 >
                   {link.label}
                   <span
-                    className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-[#D4AF37] to-[#F4C430] transition-all duration-300 ${
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-gold to-gold-light transition-all duration-300 ${
                       isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                   />
@@ -81,12 +81,12 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center bg-gradient-to-r from-[#D4AF37] to-[#F4C430] text-[#0A0E1A] font-semibold text-sm px-6 py-2.5 rounded-full hover:scale-105 hover:shadow-lg hover:shadow-[#D4AF37]/25 transition-all duration-200"
+              className="hidden md:inline-flex btn-primary text-sm px-6 py-2.5 hover:scale-105"
             >
               Get in Touch
             </Link>
             <button
-              className="md:hidden text-[#F5F5F5] hover:text-[#D4AF37] transition-colors"
+              className="md:hidden text-off-white hover:text-gold transition-colors"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >
@@ -104,7 +104,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="fixed inset-0 z-[100] bg-[#0A0E1A]/98 backdrop-blur-xl flex flex-col"
+            className="fixed inset-0 z-[100] bg-charcoal/98 backdrop-blur-xl flex flex-col"
           >
             <div className="flex items-center justify-between px-6 h-20">
               <Image
@@ -116,7 +116,7 @@ export default function Navbar() {
               />
               <button
                 onClick={() => setMobileOpen(false)}
-                className="text-[#F5F5F5] hover:text-[#D4AF37] transition-colors"
+                className="text-off-white hover:text-gold transition-colors"
                 aria-label="Close menu"
               >
                 <X className="w-6 h-6" />
@@ -134,8 +134,8 @@ export default function Navbar() {
                     href={link.href}
                     className={`text-2xl font-bold tracking-wider transition-colors ${
                       pathname === link.href
-                        ? "text-[#D4AF37]"
-                        : "text-[#F5F5F5] hover:text-[#D4AF37]"
+                        ? "text-gold"
+                        : "text-off-white hover:text-gold"
                     }`}
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
@@ -150,7 +150,7 @@ export default function Navbar() {
               >
                 <Link
                   href="/contact"
-                  className="mt-4 inline-flex items-center bg-gradient-to-r from-[#D4AF37] to-[#F4C430] text-[#0A0E1A] font-semibold text-lg px-8 py-3 rounded-full"
+                  className="mt-4 btn-primary text-lg px-8 py-3"
                 >
                   Get in Touch
                 </Link>

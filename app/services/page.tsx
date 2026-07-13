@@ -96,7 +96,7 @@ export default function ServicesPage() {
               reversed={i % 2 !== 0}
             />
             {i < services.length - 1 && (
-              <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent mx-auto" />
+              <div className="w-32 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent mx-auto" />
             )}
           </div>
         ))}

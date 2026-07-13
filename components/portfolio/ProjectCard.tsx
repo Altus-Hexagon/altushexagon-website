@@ -21,7 +21,7 @@ export default function ProjectCard({
     <motion.div
       whileHover={{ y: -6 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="group relative rounded-2xl overflow-hidden bg-[#111827] border border-white/5 hover:border-[#D4AF37]/30 transition-all duration-300"
+      className="group relative rounded-2xl overflow-hidden bg-surface border border-white/5 hover:border-gold/30 transition-all duration-300"
     >
       {/* Gradient header */}
       <div className="relative h-48 overflow-hidden">
@@ -33,14 +33,14 @@ export default function ProjectCard({
 
         {/* Coming Soon badge */}
         {comingSoon && (
-          <div className="absolute top-3 right-3 bg-[#D4AF37]/20 backdrop-blur-sm text-[#D4AF37] text-xs font-semibold px-3 py-1 rounded-full border border-[#D4AF37]/30">
+          <div className="absolute top-3 right-3 bg-gold/20 backdrop-blur-sm text-gold text-xs font-semibold px-3 py-1 rounded-full border border-gold/30">
             Coming Soon
           </div>
         )}
 
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-[#0A0E1A]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <button className="border border-[#D4AF37] text-[#D4AF37] px-5 py-2 rounded-full text-sm hover:bg-[#D4AF37] hover:text-[#0A0E1A] transition-all duration-200 font-semibold">
+        <div className="absolute inset-0 bg-charcoal/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <button className="border border-gold text-gold px-5 py-2 rounded-full text-sm hover:bg-gold hover:text-charcoal transition-all duration-200 font-semibold">
             View Details
           </button>
         </div>
@@ -49,19 +49,19 @@ export default function ProjectCard({
       {/* Card body */}
       <div className="p-6">
         <h3
-          className="font-bold text-lg text-[#F5F5F5] mb-2"
+          className="font-bold text-lg text-off-white mb-2"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {name}
         </h3>
-        <p className="text-sm text-[#A0A8C0] mb-5 leading-relaxed">
+        <p className="text-sm text-silver-muted mb-5 leading-relaxed">
           {description}
         </p>
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs bg-[#1a1f35] text-[#A0A8C0] px-3 py-1 rounded-full border border-white/5"
+              className="text-xs bg-surface-elevated text-silver-muted px-3 py-1 rounded-full border border-white/5"
             >
               {tag}
             </span>

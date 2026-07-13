@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import HexagonBackground from "@/components/HexagonBackground";
 
 const tagline = "Elevating Ideas. Engineering Solutions.".split(" ");
 
@@ -18,27 +18,51 @@ const wordVariants: Variants = {
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background layers */}
-      <div className="absolute inset-0 bg-[#0A0E1A]" />
-      <HexagonBackground />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,175,55,0.07)_0%,_transparent_70%)]" />
+    <section className="relative flex min-h-screen min-h-[100dvh] items-center justify-center overflow-hidden">
+      {/* Hero background image */}
+      <Image
+        src="/hero.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        quality={85}
+        className="object-cover object-[center_35%] sm:object-center"
+      />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {/* Company Name */}
+      {/* Overlays — light tint so the photo stays visible; darker at edges for nav/footer */}
+      <div className="absolute inset-0 bg-charcoal/25" aria-hidden />
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-charcoal/55 via-charcoal/10 to-charcoal/45"
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,162,39,0.06)_0%,transparent_70%)]"
+        aria-hidden
+      />
+      <div className="absolute inset-0 hex-grid-bg opacity-[0.08]" aria-hidden />
+
+      <div className="relative z-10 mx-auto w-full max-w-5xl px-5 sm:px-6 text-center [text-shadow:0_2px_24px_rgba(0,0,0,0.75)]">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="eyebrow mb-3 sm:mb-4 text-xs sm:text-sm"
+        >
+          Welcome to
+        </motion.p>
+
         <motion.h1
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-widest gold-text leading-tight"
-          style={{ fontFamily: "var(--font-heading)" }}
+          className="brand-title text-[2.5rem] leading-tight sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
         >
-          Altus Hexagon
+          <span className="gold-text">Altus</span>{" "}
+          <span className="silver-text">Hexagon</span>
         </motion.h1>
 
-        {/* Tagline */}
-        <div className="flex flex-wrap justify-center gap-x-2 mt-6 text-xl md:text-2xl text-[#A0A8C0] tracking-wide">
+        <div className="mt-5 sm:mt-6 flex flex-wrap justify-center gap-x-2 gap-y-1 text-base sm:text-xl md:text-2xl text-silver-muted tracking-wide px-2">
           {tagline.map((word, i) => (
             <motion.span
               key={i}
@@ -52,25 +76,24 @@ export default function HeroSection() {
           ))}
         </div>
 
-        {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.0, duration: 0.5 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mt-10"
+          className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center px-2"
         >
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center bg-gradient-to-r from-[#D4AF37] to-[#F4C430] text-[#0A0E1A] font-semibold px-8 py-4 rounded-full gold-glow hover:shadow-2xl hover:shadow-[#D4AF37]/30 transition-all duration-300 text-base"
+              className="btn-primary btn-shimmer w-full sm:w-auto px-8 py-3.5 sm:py-4 text-sm sm:text-base gold-glow"
             >
               Start Your Project
             </Link>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
             <Link
               href="/portfolio"
-              className="inline-flex items-center justify-center border-2 border-[#D4AF37] text-[#D4AF37] font-semibold px-8 py-4 rounded-full hover:bg-[#D4AF37]/10 transition-all duration-300 text-base"
+              className="btn-outline w-full sm:w-auto px-8 py-3.5 sm:py-4 text-sm sm:text-base"
             >
               View Our Work
             </Link>
@@ -78,14 +101,13 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-scroll-bounce"
+        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 animate-scroll-bounce z-10"
       >
-        <ChevronDown className="w-8 h-8 text-[#D4AF37]" />
+        <ChevronDown className="w-7 h-7 sm:w-8 sm:h-8 text-gold" />
       </motion.div>
     </section>
   );

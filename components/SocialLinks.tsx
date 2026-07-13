@@ -30,9 +30,9 @@ export default function SocialLinks({ className = "", size = "sm" }: SocialLinks
           aria-label={label}
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 400 }}
-          className={`${containerSize} clip-hexagon bg-[#1a1f35] hover:bg-gradient-to-br hover:from-[#D4AF37] hover:to-[#F4C430] flex items-center justify-center transition-all duration-300 group`}
+          className={`${containerSize} clip-hexagon bg-surface-elevated hover:bg-gradient-to-br hover:from-gold hover:to-gold-light flex items-center justify-center transition-all duration-300 group`}
         >
-          <Icon className={`${iconSize} text-[#A0A8C0] group-hover:text-[#0A0E1A] transition-colors duration-300`} />
+          <Icon className={`${iconSize} text-silver-muted group-hover:text-charcoal transition-colors duration-300`} />
         </motion.a>
       ))}
     </div>

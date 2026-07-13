@@ -16,7 +16,7 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#F5F5F5] mb-6 leading-tight"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-off-white mb-6 leading-tight"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Let&apos;s Build Something{" "}
@@ -27,7 +27,7 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-[#A0A8C0] text-lg mb-10"
+          className="text-silver-muted text-lg mb-10"
         >
           Ready to turn your idea into reality? Let&apos;s talk about your project.
         </motion.p>
@@ -41,7 +41,7 @@ export default function FinalCTA() {
         >
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center bg-gradient-to-r from-[#D4AF37] to-[#F4C430] text-[#0A0E1A] font-bold px-10 py-4 rounded-full text-base gold-glow hover:shadow-2xl hover:shadow-[#D4AF37]/30 transition-all duration-300"
+            className="inline-flex items-center justify-center btn-primary btn-shimmer px-10 py-4 text-base gold-glow"
           >
             Start Your Project Today
           </Link>

@@ -42,11 +42,11 @@ export default function ValuesSection() {
     <SectionWrapper>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
-          <p className="text-[#D4AF37] uppercase tracking-widest text-sm font-semibold mb-3">
+          <p className="text-gold uppercase tracking-widest text-sm font-semibold mb-3">
             Our Values
           </p>
           <h2
-            className="text-3xl md:text-4xl font-bold text-[#F5F5F5]"
+            className="text-3xl md:text-4xl font-bold text-off-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Why Choose Us
@@ -65,18 +65,18 @@ export default function ValuesSection() {
               key={title}
               variants={cardVariants}
               whileHover={{ y: -6 }}
-              className="group bg-[#111827] border border-white/5 hover:border-[#D4AF37]/20 rounded-xl p-7 text-center transition-all duration-300"
+              className="group bg-surface border border-white/5 hover:border-gold/20 rounded-xl p-7 text-center transition-all duration-300"
             >
-              <div className="w-16 h-16 mx-auto mb-5 rounded-2xl bg-[#D4AF37]/10 group-hover:bg-[#D4AF37]/15 flex items-center justify-center transition-colors duration-300">
-                <Icon className="w-8 h-8 text-[#D4AF37] group-hover:scale-110 transition-transform duration-300" />
+              <div className="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gold/10 group-hover:bg-gold/15 flex items-center justify-center transition-colors duration-300">
+                <Icon className="w-8 h-8 text-gold group-hover:scale-110 transition-transform duration-300" />
               </div>
               <h3
-                className="font-semibold text-lg text-[#F5F5F5] mb-3"
+                className="font-semibold text-lg text-off-white mb-3"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 {title}
               </h3>
-              <p className="text-sm text-[#A0A8C0] leading-relaxed">{desc}</p>
+              <p className="text-sm text-silver-muted leading-relaxed">{desc}</p>
             </motion.div>
           ))}
         </motion.div>

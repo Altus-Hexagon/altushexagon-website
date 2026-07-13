@@ -67,13 +67,13 @@ export default function ContactForm() {
   };
 
   const inputClass =
-    "w-full bg-[#111827] border border-white/10 rounded-xl px-5 py-3.5 text-[#F5F5F5] placeholder-[#A0A8C0]/40 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all duration-200 text-sm";
+    "w-full bg-surface border border-white/10 rounded-xl px-5 py-3.5 text-off-white placeholder-silver-muted/40 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all duration-200 text-sm";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6" noValidate>
       {/* Name */}
       <div>
-        <label htmlFor="contact-name" className="block text-sm font-semibold text-[#F5F5F5] mb-2">
+        <label htmlFor="contact-name" className="block text-sm font-semibold text-off-white mb-2">
           Your Name
         </label>
         <input
@@ -91,7 +91,7 @@ export default function ContactForm() {
 
       {/* Email */}
       <div>
-        <label htmlFor="contact-email" className="block text-sm font-semibold text-[#F5F5F5] mb-2">
+        <label htmlFor="contact-email" className="block text-sm font-semibold text-off-white mb-2">
           Email Address
         </label>
         <input
@@ -109,7 +109,7 @@ export default function ContactForm() {
 
       {/* Message */}
       <div>
-        <label htmlFor="contact-message" className="block text-sm font-semibold text-[#F5F5F5] mb-2">
+        <label htmlFor="contact-message" className="block text-sm font-semibold text-off-white mb-2">
           Your Message
         </label>
         <textarea
@@ -131,7 +131,7 @@ export default function ContactForm() {
         disabled={status === "submitting"}
         whileHover={{ scale: status === "submitting" ? 1 : 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4C430] text-[#0A0E1A] font-bold py-4 rounded-full hover:shadow-xl hover:shadow-[#D4AF37]/20 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full btn-primary py-4 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:transform-none"
       >
         {status === "submitting" ? "Sending..." : "Send Message"}
       </motion.button>
