@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0A0E1A;
+  --color-navy-light: #111827;
+  --color-navy-mid: #1a1f35;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F4C430;
+  --color-off-white: #F5F5F5;
+  --color-slate-muted: #A0A8C0;
+  --color-surface: #151a2d;
+
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ===== BASE STYLES ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0A0E1A;
+  color: #F5F5F5;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0E1A;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #D4AF37, #F4C430);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F4C430;
+}
+
+/* ===== HEXAGON CLIP PATH ===== */
+.clip-hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* ===== ANIMATED GRADIENT BORDER ===== */
+.gradient-border-wrapper {
+  position: relative;
+  border-radius: 1rem;
+  padding: 1px;
+  background: linear-gradient(var(--gradient-angle, 0deg), #D4AF37, #F4C430, #D4AF37);
+  animation: rotate-gradient 4s linear infinite paused;
+}
+.gradient-border-wrapper:hover {
+  animation-play-state: running;
+}
+.gradient-border-inner {
+  border-radius: calc(1rem - 1px);
+  background: #111827;
+  width: 100%;
+  height: 100%;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-gradient {
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+/* ===== GLOW EFFECTS ===== */
+.gold-glow {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 0 40px rgba(212, 175, 55, 0.1);
+}
+.gold-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 0 60px rgba(212, 175, 55, 0.15);
+}
+
+/* ===== HEXAGON GRID BACKGROUND ===== */
+.hex-grid-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23D4AF37' stroke-opacity='0.06' stroke-width='0.5'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23D4AF37' stroke-opacity='0.04' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-size: 56px 100px;
+}
+
+/* ===== SECTION SPACING ===== */
+.section-padding {
+  padding: 6rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 8rem 2rem;
+  }
+}
+
+/* ===== GOLD GRADIENT TEXT ===== */
+.gold-text {
+  background: linear-gradient(135deg, #D4AF37, #F4C430);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== ANIMATED LINE ===== */
+@keyframes draw-line {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animate-draw-line {
+  animation: draw-line 1.5s ease-out forwards;
+}
+
+/* ===== BOUNCE SUBTLE ===== */
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+/* ===== PULSE GLOW ===== */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.06; }
+  50% { opacity: 0.12; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* ===== SCROLL INDICATOR ===== */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(10px); opacity: 0.5; }
+}
+
+.animate-scroll-bounce {
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
