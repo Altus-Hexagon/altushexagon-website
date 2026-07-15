@@ -8,14 +8,14 @@ import {
   Brain,
   Palette,
   Paintbrush,
-  Workflow,
   ArrowRight,
   type LucideIcon,
 } from "lucide-react";
+import { SiN8N } from "react-icons/si";
 import SectionWrapper from "@/components/SectionWrapper";
 
 interface ServiceItem {
-  icon: LucideIcon;
+  icon: LucideIcon | typeof SiN8N;
   title: string;
   description: string;
 }
@@ -47,7 +47,7 @@ const services: ServiceItem[] = [
     description: "Logos, visual identity, and marketing assets that make your brand unforgettable.",
   },
   {
-    icon: Workflow,
+    icon: SiN8N,
     title: "Workflow Automation",
     description: "Custom integrations and automations that eliminate busywork and boost output.",
   },
@@ -127,7 +127,7 @@ export default function ServicesOverview() {
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div className="flex h-12 w-12 items-center justify-center clip-hexagon bg-gradient-to-br from-gold/25 to-gold-light/10 shadow-inner transition-transform duration-300 group-hover:scale-110 group-hover:from-gold/35">
-                    <Icon className="h-5 w-5 text-gold" strokeWidth={1.75} />
+                    <Icon className="h-5 w-5 text-gold" />
                   </div>
                 </div>
 

@@ -8,32 +8,56 @@ import SectionWrapper from "@/components/SectionWrapper";
 
 const projects = [
   {
-    name: "BrainUp",
+    name: "AI-Powered HR Hiring Automation Platform",
+    role: "Full-Stack AI Engineer",
     description:
-      "AI-powered learning platform that adapts to individual learning styles and pace for optimal knowledge retention.",
-    tags: ["Flutter", "Firebase", "AI", "Mobile"],
+      "An end-to-end AI recruitment platform that automates job posting, resume screening, AI-conducted intro interviews, and interview scoring — cutting HR's manual screening workload dramatically.",
+    tags: ["NestJS", "Next.js", "FastAPI", "Supabase", "Claude", "Retell AI", "Twilio"],
     gradient: "linear-gradient(135deg, #252525 0%, #2d3561 50%, #C9A227 100%)",
+    image: "/projects/hr-hiring.svg",
+    demoUrl: "https://www.loom.com/share/2f19a1e92bd54b58a723f85bb906c323",
   },
   {
-    name: "HR RAG Assistant",
+    name: "LexReview — AI-Powered Contract Review Platform",
+    role: "Full-Stack AI Engineer",
     description:
-      "Intelligent HR document assistant powered by retrieval-augmented generation for instant policy and procedure answers.",
-    tags: ["Python", "FastAPI", "RAG", "OpenAI"],
+      "An AI-driven legal tool that extracts contract clauses, scores risk against firm playbooks, and generates client-ready reports — letting lawyers focus on judgment calls instead of first-pass review.",
+    tags: ["NestJS", "Next.js", "Claude", "Supabase", "PDFKit"],
     gradient: "linear-gradient(135deg, #121212 0%, #0f2d4a 50%, #1a5276 100%)",
+    image: "/projects/lexreview.svg",
+    demoUrl: "http://loom.com/share/3f0bed4440ac4ae1915d1a9fdc3e63da",
   },
   {
-    name: "Emma Chat",
+    name: "AI-Powered Lead Generation & Cold Outreach Automation",
+    role: "Automation Engineer",
     description:
-      "Conversational AI chatbot with natural language understanding, context awareness, and real-time communication.",
-    tags: ["OpenAI", "Next.js", "WebSocket", "AI"],
+      "A fully automated prospecting pipeline that sources verified leads, generates personalized cold emails with AI, and sends them at scale — with built-in deduplication to prevent repeat outreach.",
+    tags: ["n8n", "Apollo.io", "Claude", "Gmail API", "Google Sheets"],
     gradient: "linear-gradient(135deg, #252525 0%, #2d1f4e 60%, #5b2d8e 100%)",
+    image: "/projects/lead-gen.svg",
+    demoUrl: "https://www.loom.com/share/0116f1440a5841feb7f3d49f1afebf99",
   },
   {
-    name: "GlobalPulse",
+    name: "AI-Powered CRM Email Processing & Monday.com Automation",
+    role: "Automation Engineer",
     description:
-      "Real-time global analytics dashboard for monitoring key business metrics with interactive data visualizations.",
-    tags: ["React", "PostgreSQL", "D3.js", "API"],
+      "An automated CRM intake system that reads incoming emails, extracts structured customer data using AI, and creates records directly in Monday.com — eliminating manual data entry.",
+    tags: ["n8n", "Gmail API", "AI Agent", "Monday.com"],
     gradient: "linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)",
+    image: "/projects/crm-automation.svg",
+    liveUrl: "https://extract-email-data.vercel.app/",
+    demoUrl: "https://www.loom.com/share/6af1a2d8877f4ebc9a5d325805fca33a",
+  },
+  {
+    name: "AI-Powered Financial Intelligence & Automated Report Generation",
+    role: "Automation Engineer",
+    description:
+      "A financial reporting platform that pulls raw data from Supabase, runs automated P&L, budget, and YTD calculations, and uses AI to generate executive-ready PDF reports.",
+    tags: ["n8n", "Supabase", "Claude", "OpenAI", "PostgreSQL"],
+    gradient: "linear-gradient(135deg, #1a1a1a 0%, #4a3410 50%, #C9A227 100%)",
+    image: "/projects/financial-intelligence.svg",
+    liveUrl: "https://financial-report-chi.vercel.app/",
+    demoUrl: "https://www.loom.com/share/0225d9c591104837b93c8452d43af357",
   },
 ];
 
@@ -54,8 +78,9 @@ export default function PortfolioPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.5 }}
+                className="h-full"
               >
-                <ProjectCard {...project} comingSoon />
+                <ProjectCard {...project} />
               </motion.div>
             ))}
           </div>

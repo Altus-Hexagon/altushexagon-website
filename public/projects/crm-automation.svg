@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2027"/>
+      <stop offset="50%" stop-color="#203a43"/>
+      <stop offset="100%" stop-color="#2c5364"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B8860B"/>
+      <stop offset="100%" stop-color="#F9E29C"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- workflow pipeline nodes -->
+  <g stroke="url(#gold)" stroke-width="2.5" fill="none" opacity="0.9">
+    <path d="M150 200 L300 200" />
+    <path d="M300 200 L300 120 L450 120" />
+    <path d="M300 200 L300 280 L450 280" />
+    <path d="M450 120 L600 200" />
+    <path d="M450 280 L600 200" />
+    <path d="M600 200 L680 200" />
+  </g>
+
+  <g>
+    <rect x="90" y="176" width="60" height="48" rx="8" fill="#1A1A1A" stroke="#E8E8E8" stroke-width="2"/>
+    <path d="M108 200 L118 210 L134 190" stroke="#F9E29C" stroke-width="3" fill="none"/>
+
+    <rect x="450" y="96" width="90" height="48" rx="8" fill="#1A1A1A" stroke="#F9E29C" stroke-width="2"/>
+    <circle cx="470" cy="120" r="6" fill="#F9E29C"/>
+    <line x1="486" y1="112" x2="524" y2="112" stroke="#F9E29C" stroke-width="2.5" opacity="0.8"/>
+    <line x1="486" y1="128" x2="510" y2="128" stroke="#F9E29C" stroke-width="2.5" opacity="0.6"/>
+
+    <rect x="450" y="256" width="90" height="48" rx="8" fill="#1A1A1A" stroke="#E8E8E8" stroke-width="2"/>
+    <circle cx="470" cy="280" r="6" fill="#E8E8E8"/>
+    <line x1="486" y1="272" x2="524" y2="272" stroke="#E8E8E8" stroke-width="2.5" opacity="0.8"/>
+    <line x1="486" y1="288" x2="510" y2="288" stroke="#E8E8E8" stroke-width="2.5" opacity="0.6"/>
+
+    <circle cx="620" cy="200" r="30" fill="#121212" stroke="url(#gold)" stroke-width="3"/>
+    <path d="M608 200 L618 210 L634 188" stroke="url(#gold)" stroke-width="3.5" fill="none"/>
+  </g>
+</svg>

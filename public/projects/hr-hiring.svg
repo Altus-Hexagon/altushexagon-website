@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#252525"/>
+      <stop offset="50%" stop-color="#2d3561"/>
+      <stop offset="100%" stop-color="#C9A227"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B8860B"/>
+      <stop offset="100%" stop-color="#F9E29C"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <g opacity="0.12" stroke="#F9E29C" stroke-width="1">
+    <path d="M0 40 L800 40 M0 120 L800 120 M0 280 L800 280 M0 360 L800 360" />
+  </g>
+  <!-- connected people / hiring network -->
+  <g fill="none" stroke="url(#gold)" stroke-width="2.5" opacity="0.9">
+    <line x1="400" y1="200" x2="250" y2="120"/>
+    <line x1="400" y1="200" x2="550" y2="120"/>
+    <line x1="400" y1="200" x2="250" y2="280"/>
+    <line x1="400" y1="200" x2="550" y2="280"/>
+    <line x1="400" y1="200" x2="400" y2="90"/>
+  </g>
+  <g>
+    <circle cx="400" cy="200" r="34" fill="#121212" stroke="url(#gold)" stroke-width="3"/>
+    <circle cx="400" cy="188" r="10" fill="url(#gold)"/>
+    <path d="M378 220 Q400 198 422 220" stroke="url(#gold)" stroke-width="4" fill="none"/>
+
+    <circle cx="250" cy="120" r="22" fill="#1A1A1A" stroke="#F9E29C" stroke-width="2" opacity="0.85"/>
+    <circle cx="250" cy="112" r="7" fill="#F9E29C" opacity="0.85"/>
+    <path d="M236 133 Q250 118 264 133" stroke="#F9E29C" stroke-width="3" fill="none" opacity="0.85"/>
+
+    <circle cx="550" cy="120" r="22" fill="#1A1A1A" stroke="#E8E8E8" stroke-width="2" opacity="0.8"/>
+    <circle cx="550" cy="112" r="7" fill="#E8E8E8" opacity="0.8"/>
+    <path d="M536 133 Q550 118 564 133" stroke="#E8E8E8" stroke-width="3" fill="none" opacity="0.8"/>
+
+    <circle cx="250" cy="280" r="22" fill="#1A1A1A" stroke="#E8E8E8" stroke-width="2" opacity="0.8"/>
+    <circle cx="250" cy="272" r="7" fill="#E8E8E8" opacity="0.8"/>
+    <path d="M236 293 Q250 278 264 293" stroke="#E8E8E8" stroke-width="3" fill="none" opacity="0.8"/>
+
+    <circle cx="550" cy="280" r="22" fill="#1A1A1A" stroke="#F9E29C" stroke-width="2" opacity="0.85"/>
+    <circle cx="550" cy="272" r="7" fill="#F9E29C" opacity="0.85"/>
+    <path d="M536 293 Q550 278 564 293" stroke="#F9E29C" stroke-width="3" fill="none" opacity="0.85"/>
+
+    <circle cx="400" cy="90" r="16" fill="#1A1A1A" stroke="#F9E29C" stroke-width="2" opacity="0.7"/>
+    <circle cx="400" cy="85" r="5" fill="#F9E29C" opacity="0.7"/>
+    <path d="M390 99 Q400 89 410 99" stroke="#F9E29C" stroke-width="2.5" fill="none" opacity="0.7"/>
+  </g>
+</svg>

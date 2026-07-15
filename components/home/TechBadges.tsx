@@ -1,25 +1,38 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import {
+  SiFlutter,
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiPython,
+  SiFastapi,
+  SiPostgresql,
+  SiFirebase,
+  SiN8N,
+} from "react-icons/si";
+import { Bot, type LucideIcon } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
 
 interface TechItem {
   name: string;
   color: string;
   category: string;
+  icon: LucideIcon | typeof SiFlutter;
 }
 
 const techStack: TechItem[] = [
-  { name: "Flutter", color: "#54C5F8", category: "Mobile" },
-  { name: "React", color: "#61DAFB", category: "Frontend" },
-  { name: "Next.js", color: "#FFFFFF", category: "Frontend" },
-  { name: "TypeScript", color: "#3178C6", category: "Language" },
-  { name: "Python", color: "#3776AB", category: "Backend" },
-  { name: "FastAPI", color: "#009688", category: "Backend" },
-  { name: "PostgreSQL", color: "#336791", category: "Database" },
-  { name: "Firebase", color: "#FFCA28", category: "Cloud" },
-  { name: "OpenAI", color: "#74AA9C", category: "AI" },
-  { name: "n8n", color: "#EA4B71", category: "Automation" },
+  { name: "Flutter", color: "#54C5F8", category: "Mobile", icon: SiFlutter },
+  { name: "React", color: "#61DAFB", category: "Frontend", icon: SiReact },
+  { name: "Next.js", color: "#FFFFFF", category: "Frontend", icon: SiNextdotjs },
+  { name: "TypeScript", color: "#3178C6", category: "Language", icon: SiTypescript },
+  { name: "Python", color: "#3776AB", category: "Backend", icon: SiPython },
+  { name: "FastAPI", color: "#009688", category: "Backend", icon: SiFastapi },
+  { name: "PostgreSQL", color: "#336791", category: "Database", icon: SiPostgresql },
+  { name: "Firebase", color: "#FFCA28", category: "Cloud", icon: SiFirebase },
+  { name: "OpenAI", color: "#74AA9C", category: "AI", icon: Bot },
+  { name: "n8n", color: "#EA4B71", category: "Automation", icon: SiN8N },
 ];
 
 const containerVariants: Variants = {
@@ -77,15 +90,12 @@ export default function TechBadges() {
             aria-hidden
           />
           <div className="tech-marquee flex w-max gap-4">
-            {marqueeItems.map(({ name, color }, i) => (
+            {marqueeItems.map(({ name, color, icon: Icon }, i) => (
               <div
                 key={`${name}-${i}`}
-                className="flex shrink-0 items-center gap-3 rounded-full border border-white/8 bg-surface/60 px-5 py-2.5 backdrop-blur-sm"
+                className="flex shrink-0 items-center gap-2.5 rounded-full border border-white/8 bg-surface/60 px-5 py-2.5 backdrop-blur-sm"
               >
-                <span
-                  className="h-2 w-2 rounded-full shadow-[0_0_8px_currentColor]"
-                  style={{ backgroundColor: color, color }}
-                />
+                <Icon className="h-4 w-4" style={{ color }} />
                 <span className="font-mono text-sm font-medium tracking-wide text-off-white/90">
                   {name}
                 </span>
@@ -102,7 +112,7 @@ export default function TechBadges() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5"
         >
-          {techStack.map(({ name, color, category }) => (
+          {techStack.map(({ name, color, category, icon: Icon }) => (
             <motion.div key={name} variants={itemVariants} className="group">
               <div className="relative h-full overflow-hidden rounded-xl border border-white/6 bg-surface/70 p-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/25 hover:shadow-[0_12px_32px_-8px_rgba(201,162,39,0.12)] sm:p-5">
                 <div
@@ -112,10 +122,10 @@ export default function TechBadges() {
                 />
                 <div className="relative flex items-center gap-2.5">
                   <span
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/8 font-mono text-xs font-bold"
-                    style={{ color, backgroundColor: `${color}18` }}
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/8"
+                    style={{ backgroundColor: `${color}18` }}
                   >
-                    {name.slice(0, 2).toUpperCase()}
+                    <Icon className="h-4.5 w-4.5" style={{ color }} />
                   </span>
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold text-off-white">{name}</p>

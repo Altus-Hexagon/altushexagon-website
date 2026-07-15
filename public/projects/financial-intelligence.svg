@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="50%" stop-color="#4a3410"/>
+      <stop offset="100%" stop-color="#C9A227"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B8860B"/>
+      <stop offset="100%" stop-color="#F9E29C"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <g opacity="0.12" stroke="#F9E29C" stroke-width="1">
+    <path d="M0 100 L800 100 M0 180 L800 180 M0 260 L800 260"/>
+  </g>
+
+  <!-- bar chart -->
+  <g>
+    <rect x="180" y="230" width="46" height="80" rx="3" fill="url(#gold)" opacity="0.55"/>
+    <rect x="250" y="190" width="46" height="120" rx="3" fill="url(#gold)" opacity="0.7"/>
+    <rect x="320" y="150" width="46" height="160" rx="3" fill="url(#gold)" opacity="0.85"/>
+    <rect x="390" y="110" width="46" height="200" rx="3" fill="url(#gold)"/>
+  </g>
+
+  <!-- ascending line graph with data points -->
+  <g fill="none" stroke="#E8E8E8" stroke-width="3">
+    <polyline points="470,260 520,210 570,230 620,160 670,120" opacity="0.9"/>
+  </g>
+  <g fill="#F9E29C">
+    <circle cx="470" cy="260" r="6"/>
+    <circle cx="520" cy="210" r="6"/>
+    <circle cx="570" cy="230" r="6"/>
+    <circle cx="620" cy="160" r="6"/>
+    <circle cx="670" cy="120" r="7"/>
+  </g>
+
+  <!-- baseline -->
+  <line x1="150" y1="310" x2="700" y2="310" stroke="#E8E8E8" stroke-width="2" opacity="0.5"/>
+</svg>
