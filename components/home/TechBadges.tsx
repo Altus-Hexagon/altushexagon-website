@@ -1,38 +1,28 @@
 "use client";
 
+import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import {
-  SiFlutter,
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiPython,
-  SiFastapi,
-  SiPostgresql,
-  SiFirebase,
-  SiN8N,
-} from "react-icons/si";
-import { Bot, type LucideIcon } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
 
 interface TechItem {
   name: string;
-  color: string;
+  logo: string;
   category: string;
-  icon: LucideIcon | typeof SiFlutter;
 }
 
 const techStack: TechItem[] = [
-  { name: "Flutter", color: "#54C5F8", category: "Mobile", icon: SiFlutter },
-  { name: "React", color: "#61DAFB", category: "Frontend", icon: SiReact },
-  { name: "Next.js", color: "#FFFFFF", category: "Frontend", icon: SiNextdotjs },
-  { name: "TypeScript", color: "#3178C6", category: "Language", icon: SiTypescript },
-  { name: "Python", color: "#3776AB", category: "Backend", icon: SiPython },
-  { name: "FastAPI", color: "#009688", category: "Backend", icon: SiFastapi },
-  { name: "PostgreSQL", color: "#336791", category: "Database", icon: SiPostgresql },
-  { name: "Firebase", color: "#FFCA28", category: "Cloud", icon: SiFirebase },
-  { name: "OpenAI", color: "#74AA9C", category: "AI", icon: Bot },
-  { name: "n8n", color: "#EA4B71", category: "Automation", icon: SiN8N },
+  { name: "Flutter", logo: "https://cdn.simpleicons.org/flutter/02569B", category: "Mobile" },
+  { name: "Dart", logo: "https://cdn.simpleicons.org/dart/0175C2", category: "Language" },
+  { name: "Android", logo: "https://cdn.simpleicons.org/android/3DDC84", category: "Mobile" },
+  { name: "Swift", logo: "https://cdn.simpleicons.org/swift/F05138", category: "Mobile" },
+  { name: "n8n", logo: "https://cdn.simpleicons.org/n8n/EA4B71", category: "Automation" },
+  { name: "Figma", logo: "https://cdn.simpleicons.org/figma/F24E1E", category: "Design" },
+  { name: "Next.js", logo: "https://cdn.simpleicons.org/nextdotjs/000000", category: "Frontend" },
+  { name: "TypeScript", logo: "https://cdn.simpleicons.org/typescript/3178C6", category: "Language" },
+  { name: "Python", logo: "https://cdn.simpleicons.org/python/3776AB", category: "Backend" },
+  { name: "FastAPI", logo: "https://cdn.simpleicons.org/fastapi/009688", category: "Backend" },
+  { name: "PostgreSQL", logo: "https://cdn.simpleicons.org/postgresql/4169E1", category: "Database" },
+  { name: "Firebase", logo: "https://cdn.simpleicons.org/firebase/FFCA28", category: "Cloud" },
 ];
 
 const containerVariants: Variants = {
@@ -49,10 +39,10 @@ export default function TechBadges() {
   const marqueeItems = [...techStack, ...techStack];
 
   return (
-    <SectionWrapper className="relative overflow-hidden bg-charcoal">
-      <div className="pointer-events-none absolute inset-0 hex-grid-bg opacity-[0.1]" aria-hidden />
+    <SectionWrapper className="relative overflow-hidden bg-navy">
+      <div className="pointer-events-none absolute inset-0 hex-grid-bg opacity-[0.06]" aria-hidden />
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(201,162,39,0.07)_0%,transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(212,175,55,0.05)_0%,transparent_55%)]"
         aria-hidden
       />
 
@@ -82,21 +72,29 @@ export default function TechBadges() {
         {/* Infinite marquee */}
         <div className="relative mb-12 overflow-hidden sm:mb-14">
           <div
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-charcoal to-transparent sm:w-24"
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-navy to-transparent sm:w-24"
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-charcoal to-transparent sm:w-24"
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-navy to-transparent sm:w-24"
             aria-hidden
           />
           <div className="tech-marquee flex w-max gap-4">
-            {marqueeItems.map(({ name, color, icon: Icon }, i) => (
+            {marqueeItems.map(({ name, logo }, i) => (
               <div
                 key={`${name}-${i}`}
-                className="flex shrink-0 items-center gap-2.5 rounded-full border border-white/8 bg-surface/60 px-5 py-2.5 backdrop-blur-sm"
+                className="flex shrink-0 items-center gap-2.5 rounded-full border border-black/5 bg-white px-5 py-2.5 shadow-sm"
               >
-                <Icon className="h-4 w-4" style={{ color }} />
-                <span className="font-mono text-sm font-medium tracking-wide text-off-white/90">
+                <div className="relative w-4.5 h-4.5">
+                  <Image
+                    src={logo}
+                    alt={name}
+                    fill
+                    sizes="18px"
+                    className="object-contain"
+                  />
+                </div>
+                <span className="font-mono text-sm font-medium tracking-wide text-slate-800">
                   {name}
                 </span>
               </div>
@@ -112,24 +110,24 @@ export default function TechBadges() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5"
         >
-          {techStack.map(({ name, color, category, icon: Icon }) => (
+          {techStack.map(({ name, logo, category }) => (
             <motion.div key={name} variants={itemVariants} className="group">
-              <div className="relative h-full overflow-hidden rounded-xl border border-white/6 bg-surface/70 p-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/25 hover:shadow-[0_12px_32px_-8px_rgba(201,162,39,0.12)] sm:p-5">
-                <div
-                  className="pointer-events-none absolute -right-4 -top-4 h-16 w-16 rounded-full opacity-20 blur-2xl transition-opacity duration-300 group-hover:opacity-40"
-                  style={{ backgroundColor: color }}
-                  aria-hidden
-                />
-                <div className="relative flex items-center gap-2.5">
-                  <span
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/8"
-                    style={{ backgroundColor: `${color}18` }}
-                  >
-                    <Icon className="h-4.5 w-4.5" style={{ color }} />
-                  </span>
+              <div className="relative h-full overflow-hidden rounded-xl border border-black/5 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-gold/5 sm:p-5">
+                <div className="relative flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-50 border border-slate-100 p-2">
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={logo}
+                        alt={name}
+                        fill
+                        sizes="24px"
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold text-off-white">{name}</p>
-                    <p className="truncate text-[11px] uppercase tracking-wider text-silver-muted/70">
+                    <p className="truncate text-sm font-bold text-slate-900">{name}</p>
+                    <p className="truncate text-[10px] font-semibold uppercase tracking-wider text-slate-500">
                       {category}
                     </p>
                   </div>

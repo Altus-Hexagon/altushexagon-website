@@ -13,7 +13,7 @@ const projects = [
     description:
       "An end-to-end AI recruitment platform that automates job posting, resume screening, AI-conducted intro interviews, and interview scoring — cutting HR's manual screening workload dramatically.",
     tags: ["NestJS", "Next.js", "FastAPI", "Supabase", "Claude", "Retell AI", "Twilio"],
-    gradient: "linear-gradient(135deg, #252525 0%, #2d3561 50%, #C9A227 100%)",
+    gradient: "linear-gradient(135deg, #252525 0%, #161c36 50%, #1a2245 100%)",
     image: "/projects/hr-hiring.svg",
     demoUrl: "https://www.loom.com/share/2f19a1e92bd54b58a723f85bb906c323",
   },
@@ -54,7 +54,7 @@ const projects = [
     description:
       "A financial reporting platform that pulls raw data from Supabase, runs automated P&L, budget, and YTD calculations, and uses AI to generate executive-ready PDF reports.",
     tags: ["n8n", "Supabase", "Claude", "OpenAI", "PostgreSQL"],
-    gradient: "linear-gradient(135deg, #1a1a1a 0%, #4a3410 50%, #C9A227 100%)",
+    gradient: "linear-gradient(135deg, #1a1a1a 0%, #241908 50%, #1b160b 100%)",
     image: "/projects/financial-intelligence.svg",
     liveUrl: "https://financial-report-chi.vercel.app/",
     demoUrl: "https://www.loom.com/share/0225d9c591104837b93c8452d43af357",
@@ -86,19 +86,19 @@ export default function PortfolioPage() {
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-16 p-10 rounded-2xl bg-surface border border-white/5">
-            <p className="text-silver-muted text-lg mb-2">
+          <div className="text-center mt-16 p-10 rounded-2xl bg-white border border-black/5 shadow-xl">
+            <p className="text-slate-600 text-lg mb-2">
               Have a project in mind?
             </p>
             <h3
-              className="text-2xl font-bold text-off-white mb-6"
+              className="text-2xl font-bold text-slate-900 mb-6"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Let&apos;s create something amazing together
             </h3>
             <a
               href="/contact"
-              className="inline-flex items-center bg-gradient-to-r from-gold to-gold-light text-charcoal font-semibold px-8 py-3 rounded-full hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center bg-gradient-to-r from-gold to-gold-light text-navy-dark font-semibold px-8 py-3 rounded-full hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 hover:scale-105"
             >
               Start Your Project
             </a>

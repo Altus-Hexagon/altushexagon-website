@@ -29,7 +29,7 @@ export default function ProjectCard({
     <motion.div
       whileHover={{ y: -6 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="group relative rounded-2xl overflow-hidden bg-surface border border-white/5 hover:border-gold/30 transition-all duration-300 flex flex-col h-full"
+      className="group relative rounded-2xl overflow-hidden bg-white border border-black/5 shadow-md hover:shadow-xl hover:shadow-gold/5 transition-all duration-300 flex flex-col h-full"
     >
       {/* Banner */}
       <div
@@ -47,10 +47,10 @@ export default function ProjectCard({
         {/* Shimmer sweep on hover */}
         <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
         <div className="absolute top-3 left-4 right-4">
-          <span className="inline-block bg-charcoal/60 backdrop-blur-sm text-gold-light text-xs font-semibold px-3 py-1 rounded-full border border-gold/20">
+          <span className="inline-block bg-navy/60 backdrop-blur-sm text-gold-light text-xs font-semibold px-3 py-1 rounded-full border border-gold/20">
             {role}
           </span>
         </div>
@@ -59,19 +59,19 @@ export default function ProjectCard({
       {/* Card body */}
       <div className="p-6 flex flex-col grow">
         <h3
-          className="font-bold text-lg text-off-white mb-2"
+          className="font-bold text-lg text-slate-900 mb-2"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {name}
         </h3>
-        <p className="text-sm text-silver-muted mb-5 leading-relaxed grow">
+        <p className="text-sm text-slate-600 mb-5 leading-relaxed grow">
           {description}
         </p>
         <div className="flex flex-wrap gap-2 mb-6">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs bg-surface-elevated text-silver-muted px-3 py-1 rounded-full border border-white/5"
+              className="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full border border-slate-200/50"
             >
               {tag}
             </span>
@@ -79,7 +79,7 @@ export default function ProjectCard({
         </div>
 
         {(liveUrl || demoUrl) && (
-          <div className="flex flex-wrap gap-3 mt-auto pt-4 border-t border-white/5">
+          <div className="flex flex-wrap gap-3 mt-auto pt-4 border-t border-slate-100">
             {liveUrl && (
               <a
                 href={liveUrl}

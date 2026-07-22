@@ -10,13 +10,14 @@ const services = [
     icon: Smartphone,
     title: "Mobile App Development",
     description:
-      "We build beautiful, high-performance cross-platform mobile applications using Flutter. From concept to App Store, we handle the entire development lifecycle with a focus on smooth user experiences and clean architecture.",
+      "We build beautiful, high-performance cross-platform mobile applications using Flutter, as well as native Android (Kotlin) and iOS (Swift) apps. From concept to App Store, we handle the entire development lifecycle with a focus on smooth user experiences and clean architecture.",
     features: [
       "Cross-platform (iOS & Android)",
       "Flutter & Dart expertise",
       "App Store optimization",
       "Push notifications & analytics",
     ],
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbyUiiACMoVaUx9QhH6oyvdFvocbxvLgj_v4znQ3U9JQ&s=10",
   },
   {
     icon: Globe,
@@ -29,6 +30,7 @@ const services = [
       "REST & GraphQL APIs",
       "Cloud deployment & DevOps",
     ],
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa_8qiMCO6SNL4T96SY2ApbcMKSDtKp5s83P9H438iwLRrU3f_0dzT2WY&s=10",
   },
   {
     icon: Brain,
@@ -41,6 +43,7 @@ const services = [
       "Custom AI agents & pipelines",
       "Natural language processing",
     ],
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=600&q=80",
   },
   {
     icon: Palette,
@@ -53,6 +56,7 @@ const services = [
       "Design systems & component libraries",
       "Responsive & accessible design",
     ],
+    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=600&q=80",
   },
   {
     icon: Paintbrush,
@@ -65,6 +69,7 @@ const services = [
       "Marketing & print materials",
       "Social media asset creation",
     ],
+    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80",
   },
   {
     icon: Workflow,
@@ -77,6 +82,7 @@ const services = [
       "Process optimization & mapping",
       "Business intelligence dashboards",
     ],
+    image: "https://cdn.prod.website-files.com/68bda8ed1023b7fed633b3c0/6a2657566c9323bf9358f683_build-ai-agents-automate-workflows-n8n.webp",
   },
 ];
 

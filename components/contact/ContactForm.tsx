@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useForm } from "@formspree/react";
 
 interface FormData {
   name: string;
@@ -14,8 +15,6 @@ interface FormErrors {
   email?: string;
   message?: string;
 }
-
-type Status = "idle" | "submitting" | "success" | "error";
 
 function validate(data: FormData): FormErrors {
   const errors: FormErrors = {};
@@ -31,7 +30,13 @@ function validate(data: FormData): FormErrors {
 export default function ContactForm() {
   const [form, setForm] = useState<FormData>({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<Status>("idle");
+  const [state, submitToFormspree] = useForm("mjgnyvbe");
+
+  useEffect(() => {
+    if (state.succeeded) {
+      setForm({ name: "", email: "", message: "" });
+    }
+  }, [state.succeeded]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -40,40 +45,24 @@ export default function ContactForm() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const validationErrors = validate(form);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
-    setStatus("submitting");
-    try {
-      // Replace 'xplaceholder' with your actual Formspree form ID from formspree.io
-      const res = await fetch("https://formspree.io/f/xplaceholder", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (res.ok) {
-        setStatus("success");
-        setForm({ name: "", email: "", message: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
+    await submitToFormspree(e);
   };
 
   const inputClass =
-    "w-full bg-surface border border-white/10 rounded-xl px-5 py-3.5 text-off-white placeholder-silver-muted/40 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all duration-200 text-sm";
+    "w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all duration-200 text-sm";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6" noValidate>
       {/* Name */}
       <div>
-        <label htmlFor="contact-name" className="block text-sm font-semibold text-off-white mb-2">
+        <label htmlFor="contact-name" className="block text-sm font-semibold text-slate-700 mb-2">
           Your Name
         </label>
         <input
@@ -84,14 +73,14 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder="John Smith"
           className={inputClass}
-          disabled={status === "submitting"}
+          disabled={state.submitting}
         />
-        {errors.name && <p className="text-red-400 text-xs mt-1.5">{errors.name}</p>}
+        {errors.name && <p className="text-red-500 text-xs mt-1.5">{errors.name}</p>}
       </div>
 
       {/* Email */}
       <div>
-        <label htmlFor="contact-email" className="block text-sm font-semibold text-off-white mb-2">
+        <label htmlFor="contact-email" className="block text-sm font-semibold text-slate-700 mb-2">
           Email Address
         </label>
         <input
@@ -102,14 +91,14 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder="john@company.com"
           className={inputClass}
-          disabled={status === "submitting"}
+          disabled={state.submitting}
         />
-        {errors.email && <p className="text-red-400 text-xs mt-1.5">{errors.email}</p>}
+        {errors.email && <p className="text-red-500 text-xs mt-1.5">{errors.email}</p>}
       </div>
 
       {/* Message */}
       <div>
-        <label htmlFor="contact-message" className="block text-sm font-semibold text-off-white mb-2">
+        <label htmlFor="contact-message" className="block text-sm font-semibold text-slate-700 mb-2">
           Your Message
         </label>
         <textarea
@@ -120,25 +109,25 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder="Tell us about your project..."
           className={`${inputClass} resize-none`}
-          disabled={status === "submitting"}
+          disabled={state.submitting}
         />
-        {errors.message && <p className="text-red-400 text-xs mt-1.5">{errors.message}</p>}
+        {errors.message && <p className="text-red-500 text-xs mt-1.5">{errors.message}</p>}
       </div>
 
       {/* Submit */}
       <motion.button
         type="submit"
-        disabled={status === "submitting"}
-        whileHover={{ scale: status === "submitting" ? 1 : 1.02 }}
+        disabled={state.submitting}
+        whileHover={{ scale: state.submitting ? 1 : 1.02 }}
         whileTap={{ scale: 0.98 }}
         className="w-full btn-primary py-4 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:transform-none"
       >
-        {status === "submitting" ? "Sending..." : "Send Message"}
+        {state.submitting ? "Sending..." : "Send Message"}
       </motion.button>
 
       {/* Status messages */}
       <AnimatePresence>
-        {status === "success" && (
+        {state.succeeded && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -148,14 +137,14 @@ export default function ContactForm() {
             ✓ Thank you! Your message has been sent. We&apos;ll get back to you soon.
           </motion.div>
         )}
-        {status === "error" && (
+        {state.errors && Object.keys(state.errors).length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 text-red-400 text-sm text-center"
           >
-            Something went wrong. Please try again or email us at info.altushexagone@gmail.com
+            Something went wrong. Please try again or email us at info@altushexagon.com
           </motion.div>
         )}
       </AnimatePresence>

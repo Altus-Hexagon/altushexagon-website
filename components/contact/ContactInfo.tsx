@@ -21,10 +21,10 @@ export default function ContactInfo() {
           <div>
             <p className="text-xs text-silver-muted uppercase tracking-wider mb-1">Email</p>
             <a
-              href="mailto:info.altushexagone@gmail.com"
+              href="mailto:info@altushexagon.com"
               className="text-off-white hover:text-gold transition-colors text-sm break-all"
             >
-              info.altushexagone@gmail.com
+              info@altushexagon.com
             </a>
           </div>
         </div>
@@ -51,9 +51,9 @@ export default function ContactInfo() {
       </div>
 
       {/* Decorative */}
-      <div className="mt-12 p-6 rounded-2xl bg-surface border border-white/5">
-        <p className="text-silver-muted text-sm leading-relaxed">
-          <span className="text-gold font-semibold">Typical response time:</span> Within 24
+      <div className="mt-12 p-6 rounded-2xl bg-white border border-black/5 shadow-md">
+        <p className="text-slate-600 text-sm leading-relaxed">
+          <span className="text-navy font-semibold">Typical response time:</span> Within 24
           hours on business days. We&apos;re excited to learn about your project!
         </p>
       </div>

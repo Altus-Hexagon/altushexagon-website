@@ -71,9 +71,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="group flex h-10 w-10 items-center justify-center clip-hexagon border border-white/8 bg-surface/80 transition-all duration-300 hover:border-gold/40 hover:bg-gradient-to-br hover:from-gold hover:to-gold-light"
+                  className="group flex h-10 w-10 items-center justify-center clip-hexagon border border-gold/30 bg-navy-light/80 transition-all duration-300 hover:border-gold hover:bg-navy-light hover:shadow-[0_0_12px_rgba(212,175,55,0.4)]"
                 >
-                  <Icon className="h-4 w-4 text-silver-muted transition-colors duration-300 group-hover:text-charcoal" />
+                  <Icon className="h-4 w-4 text-gold transition-all duration-300 group-hover:text-white group-hover:scale-110" />
                 </a>
               ))}
             </div>
@@ -135,27 +135,27 @@ export default function Footer() {
             </h3>
             <div className="space-y-4">
               <a
-                href="mailto:info.altushexagone@gmail.com"
-                className="group flex items-start gap-3 rounded-xl border border-white/6 bg-surface/50 p-4 transition-all duration-300 hover:border-gold/25 hover:bg-surface/80"
+                href="mailto:info@altushexagon.com"
+                className="group flex items-start gap-3 rounded-xl border border-white/10 bg-navy-light/60 p-4 transition-all duration-300 hover:border-gold/25 hover:bg-navy-light/80"
               >
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gold/10">
                   <Mail className="h-4 w-4 text-gold" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[11px] uppercase tracking-wider text-silver-muted/70">Email</p>
-                  <p className="truncate text-sm text-off-white transition-colors group-hover:text-gold">
-                    info.altushexagone@gmail.com
+                  <p className="text-[11px] uppercase tracking-wider text-gold font-semibold">Email</p>
+                  <p className="truncate text-sm text-[#F5F5F5] transition-colors group-hover:text-gold">
+                    info@altushexagon.com
                   </p>
                 </div>
               </a>
-              <div className="flex items-start gap-3 rounded-xl border border-white/6 bg-surface/50 p-4">
+              <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-navy-light/60 p-4">
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gold/10">
                   <MapPin className="h-4 w-4 text-gold" />
                 </div>
                 <div>
-                  <p className="text-[11px] uppercase tracking-wider text-silver-muted/70">Location</p>
-                  <p className="text-sm text-off-white">Faisalabad, Punjab</p>
-                  <p className="text-xs text-silver-muted/70">Pakistan</p>
+                  <p className="text-[11px] uppercase tracking-wider text-gold font-semibold">Location</p>
+                  <p className="text-sm text-[#F5F5F5] font-medium">Faisalabad, Punjab</p>
+                  <p className="text-xs text-[#F5F5F5]/85">Pakistan</p>
                 </div>
               </div>
             </div>

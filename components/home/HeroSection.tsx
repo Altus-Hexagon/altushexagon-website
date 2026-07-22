@@ -21,23 +21,23 @@ export default function HeroSection() {
     <section className="relative flex min-h-screen min-h-[100dvh] items-center justify-center overflow-hidden">
       {/* Hero background image */}
       <Image
-        src="/hero.jpg"
-        alt=""
+        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
+        alt="Altus Hexagon Modern Tech Workspace"
         fill
         priority
         sizes="100vw"
-        quality={85}
+        quality={75}
         className="object-cover object-[center_35%] sm:object-center"
       />
 
-      {/* Overlays — light tint so the photo stays visible; darker at edges for nav/footer */}
-      <div className="absolute inset-0 bg-charcoal/25" aria-hidden />
+      {/* Overlays — rich navy blue tints so the text remains highly readable */}
+      <div className="absolute inset-0 bg-navy-dark/50" aria-hidden />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-charcoal/55 via-charcoal/10 to-charcoal/45"
+        className="absolute inset-0 bg-gradient-to-b from-navy-dark/85 via-navy/20 to-navy-dark/90"
         aria-hidden
       />
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,162,39,0.06)_0%,transparent_70%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.08)_0%,transparent_70%)]"
         aria-hidden
       />
       <div className="absolute inset-0 hex-grid-bg opacity-[0.08]" aria-hidden />

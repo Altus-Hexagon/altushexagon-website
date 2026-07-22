@@ -1,22 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  /* Charcoal backgrounds — matte black from brand image */
-  --color-charcoal: #121212;
-  --color-charcoal-dark: #0A0A0A;
-  --color-charcoal-mid: #141414;
-  --color-surface: #1A1A1A;
-  --color-surface-elevated: #252525;
+  /* Navy backgrounds & branding */
+  --color-navy: #0A1128;
+  --color-navy-dark: #050814;
+  --color-navy-light: #101F42;
+  --color-charcoal: #0A1128;
+  --color-charcoal-dark: #050814;
+  --color-charcoal-mid: #0D1635;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #F8FAFC;
 
-  /* Metallic gold gradient anchors */
+  /* Gold / Amber accents */
   --color-gold-dark: #B8860B;
-  --color-gold: #C9A227;
-  --color-gold-light: #F9E29C;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F4C430;
 
-  /* Silver / white accents */
-  --color-silver: #E8E8E8;
-  --color-silver-muted: #B0B0B0;
-  --color-off-white: #F0F0F0;
+  /* Silver / Neutral accents */
+  --color-silver: #E2E8F0;
+  --color-silver-muted: #94A3B8;
+  --color-off-white: #F8FAFC;
+  --color-text-dark: #0F172A;
+  --color-text-muted-dark: #475569;
 
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -28,7 +33,7 @@ html {
 }
 
 body {
-  background-color: var(--color-charcoal);
+  background-color: var(--color-navy);
   color: var(--color-off-white);
   font-family: var(--font-body);
   overflow-x: hidden;
@@ -39,7 +44,7 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-charcoal-dark);
+  background: var(--color-navy-dark);
 }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--color-gold-dark), var(--color-gold-light));
@@ -71,7 +76,7 @@ body {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-/* Split brand headline: ALTUS (gold) + HEXAGON (silver) */
+/* Split brand headline */
 .brand-title {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -86,18 +91,18 @@ body {
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--color-gold-dark) 0%, var(--color-gold) 45%, var(--color-gold-light) 100%);
-  color: var(--color-charcoal);
+  color: var(--color-navy-dark);
   font-weight: 600;
   border-radius: 9999px;
   transition: all 0.3s ease;
   box-shadow:
-    0 4px 15px rgba(184, 134, 11, 0.35),
+    0 4px 15px rgba(212, 175, 55, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .btn-primary:hover {
   box-shadow:
-    0 6px 25px rgba(184, 134, 11, 0.45),
+    0 6px 25px rgba(212, 175, 55, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   transform: translateY(-1px);
 }
@@ -114,7 +119,7 @@ body {
 }
 
 .btn-outline:hover {
-  background: rgba(201, 162, 39, 0.1);
+  background: rgba(212, 175, 55, 0.1);
   border-color: var(--color-gold-light);
   color: var(--color-gold-light);
 }
@@ -141,7 +146,7 @@ body {
 }
 .gradient-border-inner {
   border-radius: calc(1rem - 1px);
-  background: var(--color-surface);
+  background: var(--color-navy);
   width: 100%;
   height: 100%;
 }
@@ -161,33 +166,33 @@ body {
 /* ===== GLOW EFFECTS ===== */
 .gold-glow {
   box-shadow:
-    0 0 20px rgba(184, 134, 11, 0.3),
-    0 0 40px rgba(201, 162, 39, 0.12);
+    0 0 20px rgba(212, 175, 55, 0.2),
+    0 0 40px rgba(244, 196, 48, 0.1);
 }
 .gold-glow-hover:hover {
   box-shadow:
-    0 0 30px rgba(184, 134, 11, 0.4),
-    0 0 60px rgba(201, 162, 39, 0.15);
+    0 0 30px rgba(212, 175, 55, 0.3),
+    0 0 60px rgba(244, 196, 48, 0.15);
 }
 
-/* ===== 3D HEXAGON GRID BACKGROUND ===== */
+/* ===== HEXAGON GRID BACKGROUND ===== */
 .hex-grid-bg {
-  background-color: var(--color-charcoal);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='104' viewBox='0 0 60 104'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23B8860B' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%23F9E29C' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M30 2L56 16L56 52L30 66L4 52L4 16Z' fill='none' stroke='url(%23g)' stroke-width='0.8'/%3E%3Cpath d='M30 38L56 52L56 88L30 102L4 88L4 52Z' fill='none' stroke='url(%23g)' stroke-width='0.6' opacity='0.7'/%3E%3Cpath d='M30 2L30 38L4 52L4 16Z' fill='%23B8860B' fill-opacity='0.03'/%3E%3Cpath d='M30 2L56 16L56 52L30 38Z' fill='%23F9E29C' fill-opacity='0.02'/%3E%3C/svg%3E");
+  background-color: var(--color-navy);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='104' viewBox='0 0 60 104'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23D4AF37' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%23F4C430' stop-opacity='0.02'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M30 2L56 16L56 52L30 66L4 52L4 16Z' fill='none' stroke='url(%23g)' stroke-width='0.8'/%3E%3Cpath d='M30 38L56 52L56 88L30 102L4 88L4 52Z' fill='none' stroke='url(%23g)' stroke-width='0.6' opacity='0.7'/%3E%3Cpath d='M30 2L30 38L4 52L4 16Z' fill='%23D4AF37' fill-opacity='0.02'/%3E%3Cpath d='M30 2L56 16L56 52L30 38Z' fill='%23F4C430' fill-opacity='0.01'/%3E%3C/svg%3E");
   background-size: 60px 104px;
 }
 
 /* ===== CARD SURFACE ===== */
 .card-surface {
   background: var(--color-surface);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-surface:hover {
-  border-color: rgba(201, 162, 39, 0.25);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-color: rgba(212, 175, 55, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
 }
 
 /* ===== SECTION SPACING ===== */
@@ -271,3 +276,19 @@ body {
   background-size: 200% auto;
   animation: shimmer 2s linear infinite;
 }
+
+/* ===== TECH ORBIT ANIMATION ===== */
+@keyframes tech-orbit {
+  from {
+    transform: rotate(0deg) translateX(var(--orbit-radius, 110px)) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(var(--orbit-radius, 110px)) rotate(-360deg);
+  }
+}
+
+.animate-tech-orbit {
+  animation: tech-orbit 30s linear infinite;
+}
+
+

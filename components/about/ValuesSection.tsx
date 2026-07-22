@@ -65,18 +65,18 @@ export default function ValuesSection() {
               key={title}
               variants={cardVariants}
               whileHover={{ y: -6 }}
-              className="group bg-surface border border-white/5 hover:border-gold/20 rounded-xl p-7 text-center transition-all duration-300"
+              className="group bg-white border border-black/5 shadow-md rounded-xl p-7 text-center transition-all duration-300"
             >
               <div className="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gold/10 group-hover:bg-gold/15 flex items-center justify-center transition-colors duration-300">
                 <Icon className="w-8 h-8 text-gold group-hover:scale-110 transition-transform duration-300" />
               </div>
               <h3
-                className="font-semibold text-lg text-off-white mb-3"
+                className="font-semibold text-lg text-slate-900 mb-3"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 {title}
               </h3>
-              <p className="text-sm text-silver-muted leading-relaxed">{desc}</p>
+              <p className="text-sm text-slate-600 leading-relaxed">{desc}</p>
             </motion.div>
           ))}
         </motion.div>

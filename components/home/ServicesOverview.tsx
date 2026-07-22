@@ -1,55 +1,41 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import {
-  Smartphone,
-  Globe,
-  Brain,
-  Palette,
   Paintbrush,
   ArrowRight,
   type LucideIcon,
 } from "lucide-react";
-import { SiN8N } from "react-icons/si";
 import SectionWrapper from "@/components/SectionWrapper";
 
 interface ServiceItem {
-  icon: LucideIcon | typeof SiN8N;
+  icon: string | LucideIcon;
   title: string;
   description: string;
 }
 
 const services: ServiceItem[] = [
   {
-    icon: Smartphone,
+    icon: "https://cdn.simpleicons.org/flutter/02569B",
     title: "Mobile App Development",
-    description: "Cross-platform iOS & Android apps with Flutter — polished, fast, and built to scale.",
+    description: "Cross-platform iOS & Android apps built with Flutter — high-performance, polished, and fully customized.",
   },
   {
-    icon: Globe,
-    title: "Web Development",
-    description: "Modern full-stack web apps with Next.js, React, and cloud-ready architecture.",
+    icon: "https://cdn.simpleicons.org/n8n/EA4B71",
+    title: "n8n Automation & AI Workflows",
+    description: "Intelligent workflow automation powered by n8n, AI integrations, custom APIs, and autonomous agents.",
   },
   {
-    icon: Brain,
-    title: "AI-Powered Applications",
-    description: "Intelligent products powered by OpenAI, RAG pipelines, and custom AI agents.",
-  },
-  {
-    icon: Palette,
+    icon: "https://cdn.simpleicons.org/figma/F24E1E",
     title: "UI/UX Design",
-    description: "User-centered interfaces, prototypes, and design systems that convert.",
+    description: "User-centered design systems, clean wireframes, and interactive prototypes built to convert.",
   },
   {
     icon: Paintbrush,
-    title: "Branding & Graphic Design",
-    description: "Logos, visual identity, and marketing assets that make your brand unforgettable.",
-  },
-  {
-    icon: SiN8N,
-    title: "Workflow Automation",
-    description: "Custom integrations and automations that eliminate busywork and boost output.",
+    title: "Graphic Design & Branding",
+    description: "Distinct visual identities, logos, brand guidelines, and graphics that tell your brand's unique story.",
   },
 ];
 
@@ -65,19 +51,15 @@ const cardVariants: Variants = {
 
 export default function ServicesOverview() {
   return (
-    <SectionWrapper className="relative overflow-hidden bg-charcoal-mid">
+    <SectionWrapper className="relative overflow-hidden bg-navy">
       {/* Ambient background */}
-      <div className="pointer-events-none absolute inset-0 hex-grid-bg opacity-[0.12]" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 hex-grid-bg opacity-[0.08]" aria-hidden />
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(201,162,39,0.09)_0%,transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,175,55,0.06)_0%,transparent_55%)]"
         aria-hidden
       />
       <div
         className="pointer-events-none absolute -right-32 top-1/3 h-80 w-80 rounded-full bg-gold/5 blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-gold/4 blur-3xl"
         aria-hidden
       />
 
@@ -98,7 +80,7 @@ export default function ServicesOverview() {
             Our <span className="gold-text">Services</span>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-silver-muted sm:text-lg">
-            From mobile apps and AI products to branding and automation — we deliver
+            From mobile apps and AI workflows to branding and UI/UX design — we deliver
             end-to-end digital solutions tailored to your goals.
           </p>
           <div className="gold-divider mx-auto mt-8 w-20" />
@@ -110,44 +92,57 @@ export default function ServicesOverview() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {services.map(({ icon: Icon, title, description }, index) => (
-            <motion.div key={title} variants={cardVariants} className="group">
-              <div className="relative h-full overflow-hidden rounded-2xl border border-white/[0.06] bg-surface/70 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/25 hover:shadow-[0_20px_50px_-12px_rgba(201,162,39,0.15)] sm:p-7">
-                {/* Hover glow */}
-                <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-gold/8 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  aria-hidden
-                />
+          {services.map(({ icon, title, description }, index) => {
+            const IsCdnIcon = typeof icon === "string";
+            const LucideIconComponent = icon as LucideIcon;
 
-                {/* Top row: index + icon */}
-                <div className="relative mb-5 flex items-start justify-between">
-                  <span className="font-mono text-xs font-medium tracking-widest text-gold/40">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div className="flex h-12 w-12 items-center justify-center clip-hexagon bg-gradient-to-br from-gold/25 to-gold-light/10 shadow-inner transition-transform duration-300 group-hover:scale-110 group-hover:from-gold/35">
-                    <Icon className="h-5 w-5 text-gold" />
+            return (
+              <motion.div key={title} variants={cardVariants} className="group">
+                <div className="relative h-full overflow-hidden rounded-2xl border border-black/5 bg-white p-6 shadow-lg shadow-black/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-gold/10 sm:p-7 flex flex-col justify-between">
+                  <div>
+                    {/* Top row: index + icon */}
+                    <div className="relative mb-6 flex items-start justify-between">
+                      <span className="font-mono text-xs font-semibold tracking-widest text-gold">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 border border-slate-100 shadow-sm transition-transform duration-300 group-hover:scale-110">
+                        {IsCdnIcon ? (
+                          <div className="relative w-6 h-6">
+                            <Image
+                              src={icon}
+                              alt={title}
+                              fill
+                              sizes="24px"
+                              className="object-contain"
+                            />
+                          </div>
+                        ) : (
+                          <LucideIconComponent className="h-5 w-5 text-navy" />
+                        )}
+                      </div>
+                    </div>
+
+                    <h3
+                      className="relative mb-3 text-lg font-bold leading-snug text-slate-900"
+                      style={{ fontFamily: "var(--font-heading)" }}
+                    >
+                      {title}
+                    </h3>
+                    <p className="relative text-sm leading-relaxed text-slate-600">
+                      {description}
+                    </p>
+                  </div>
+
+                  {/* Animated underline */}
+                  <div className="relative mt-6 h-px w-full overflow-hidden bg-slate-100">
+                    <div className="h-full w-0 bg-gradient-to-r from-gold to-gold-light transition-all duration-500 group-hover:w-full" />
                   </div>
                 </div>
-
-                <h3
-                  className="relative mb-2 text-lg font-semibold leading-snug text-off-white"
-                  style={{ fontFamily: "var(--font-heading)" }}
-                >
-                  {title}
-                </h3>
-                <p className="relative text-sm leading-relaxed text-silver-muted">
-                  {description}
-                </p>
-
-                {/* Animated underline */}
-                <div className="relative mt-5 h-px w-full overflow-hidden bg-white/5">
-                  <div className="h-full w-0 bg-gradient-to-r from-gold to-gold-light transition-all duration-500 group-hover:w-full" />
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         {/* CTA */}
@@ -166,7 +161,7 @@ export default function ServicesOverview() {
             <ArrowRight className="h-4 w-4" />
           </Link>
           <p className="text-xs text-silver-muted/70 sm:text-sm">
-            6 core disciplines · Custom solutions for every stage
+            4 core disciplines · Custom solutions for every stage
           </p>
         </motion.div>
       </div>

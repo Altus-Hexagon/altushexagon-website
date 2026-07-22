@@ -1,33 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
 
-function FloatingHexagon({
-  className,
-  delay = 0,
-  size = "w-32 h-32",
-  bg = "bg-gold/10",
-}: {
-  className?: string;
-  delay?: number;
-  size?: string;
-  bg?: string;
-}) {
-  return (
-    <motion.div
-      animate={{ y: [0, -12, 0] }}
-      transition={{ duration: 4 + delay, repeat: Infinity, ease: "easeInOut", delay }}
-      className={`${size} clip-hexagon ${bg} ${className}`}
-    />
-  );
-}
-
 export default function QuickAbout() {
   return (
-    <SectionWrapper id="about-teaser">
+    <SectionWrapper id="about-teaser" className="bg-navy-dark">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Text */}
         <div>
@@ -55,34 +36,54 @@ export default function QuickAbout() {
           </Link>
         </div>
 
-        {/* Decorative Hexagon Graphic */}
-        <div className="relative h-72 flex items-center justify-center">
-          <FloatingHexagon
-            size="w-56 h-56"
-            bg="bg-gold/8"
-            className="absolute"
-            delay={0}
-          />
-          <FloatingHexagon
-            size="w-36 h-36"
-            bg="bg-surface-elevated border-2 border-gold/20"
-            className="absolute -translate-x-20 translate-y-10"
-            delay={1}
-          />
-          <FloatingHexagon
-            size="w-24 h-24"
-            bg="bg-gradient-to-br from-gold/20 to-gold-light/10"
-            className="absolute translate-x-24 -translate-y-12"
-            delay={0.5}
-          />
-          <FloatingHexagon
-            size="w-16 h-16"
-            bg="bg-gold/15"
-            className="absolute translate-x-8 translate-y-20"
-            delay={1.5}
-          />
-          {/* Center dot */}
-          <div className="absolute w-4 h-4 rounded-full bg-gradient-to-br from-gold to-gold-light shadow-lg shadow-gold/40" />
+        {/* Option A: Rotating Tech Stack Orbit */}
+        <div className="relative h-80 sm:h-96 flex items-center justify-center [--orbit-radius:105px] md:[--orbit-radius:140px] overflow-visible">
+          {/* Background orbit lines */}
+          <div className="absolute w-[210px] h-[210px] md:w-[280px] md:h-[280px] rounded-full border border-gold/10 pointer-events-none" />
+          <div className="absolute w-[210px] h-[210px] md:w-[280px] md:h-[280px] rounded-full bg-gradient-to-br from-gold/5 via-transparent to-gold-light/5 blur-sm pointer-events-none" />
+
+          {/* Central Glowing Gold Hexagon */}
+          <div className="absolute w-20 h-20 md:w-24 md:h-24 clip-hexagon bg-gradient-to-br from-gold-dark via-gold to-gold-light p-[1.5px] flex items-center justify-center shadow-lg shadow-gold/20 z-10 animate-bounce-subtle">
+            <div className="w-full h-full clip-hexagon bg-navy flex items-center justify-center p-2">
+              <Image
+                src="/logo.png"
+                alt="Altus Hexagon Logo"
+                width={56}
+                height={56}
+                className="w-10 h-10 md:w-12 md:h-12 object-contain"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Orbiting Badges */}
+          {[
+            { name: "Flutter", logo: "https://cdn.simpleicons.org/flutter/02569B", delay: 0 },
+            { name: "Android", logo: "https://cdn.simpleicons.org/android/3DDC84", delay: -3.33 },
+            { name: "Figma", logo: "https://cdn.simpleicons.org/figma/F24E1E", delay: -6.67 },
+            { name: "n8n", logo: "https://cdn.simpleicons.org/n8n/EA4B71", delay: -10 },
+            { name: "Next.js", logo: "https://cdn.simpleicons.org/nextdotjs/000000", delay: -13.33 },
+            { name: "FastAPI", logo: "https://cdn.simpleicons.org/fastapi/009688", delay: -16.67 },
+            { name: "PostgreSQL", logo: "https://cdn.simpleicons.org/postgresql/4169E1", delay: -20 },
+            { name: "Dart", logo: "https://cdn.simpleicons.org/dart/0175C2", delay: -23.33 },
+            { name: "Swift", logo: "https://cdn.simpleicons.org/swift/F05138", delay: -26.67 },
+          ].map((tech) => (
+            <div
+              key={tech.name}
+              className="absolute w-11 h-11 md:w-13 md:h-13 rounded-full bg-white shadow-md border border-slate-100 flex items-center justify-center p-2.5 animate-tech-orbit hover:[animation-play-state:paused] cursor-pointer transition-transform hover:scale-110"
+              style={{ animationDelay: `${tech.delay}s` }}
+            >
+              <div className="relative w-full h-full">
+                <Image
+                  src={tech.logo}
+                  alt={tech.name}
+                  fill
+                  sizes="32px"
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </SectionWrapper>

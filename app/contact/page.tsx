@@ -18,14 +18,14 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
             {/* Form - takes more space */}
             <div className="lg:col-span-3">
-              <div className="bg-surface border border-white/5 rounded-2xl p-8 md:p-10">
+              <div className="bg-white border border-black/5 shadow-xl rounded-2xl p-8 md:p-10">
                 <h2
-                  className="text-2xl font-bold text-off-white mb-2"
+                  className="text-2xl font-bold text-slate-900 mb-2"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   Send Us a Message
                 </h2>
-                <p className="text-silver-muted text-sm mb-8">
+                <p className="text-slate-600 text-sm mb-8">
                   Fill in the form below and we&apos;ll get back to you within 24 hours.
                 </p>
                 <ContactForm />
