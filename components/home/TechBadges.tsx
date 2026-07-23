@@ -91,6 +91,7 @@ export default function TechBadges() {
                     alt={name}
                     fill
                     sizes="18px"
+                    unoptimized
                     className="object-contain"
                   />
                 </div>
@@ -121,6 +122,7 @@ export default function TechBadges() {
                         alt={name}
                         fill
                         sizes="24px"
+                        unoptimized
                         className="object-contain"
                       />
                     </div>

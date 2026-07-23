@@ -79,6 +79,7 @@ export default function QuickAbout() {
                   alt={tech.name}
                   fill
                   sizes="32px"
+                  unoptimized
                   className="object-contain"
                 />
               </div>

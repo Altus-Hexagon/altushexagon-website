@@ -115,6 +115,7 @@ export default function ServicesOverview() {
                               alt={title}
                               fill
                               sizes="24px"
+                              unoptimized
                               className="object-contain"
                             />
                           </div>
